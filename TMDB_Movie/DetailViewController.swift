@@ -1,53 +1,56 @@
 //
-//  MovieTableViewCell.swift
+//  DetailViewController.swift
 //  TMDB_Movie
 //
-//  Created by 최기훈 on 2022/07/14.
+//  Created by 최기훈 on 2022/07/15.
 //
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell {
-
+class DetailViewController: UIViewController {
+    
+    
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieOverview: UILabel!
-    @IBOutlet weak var movieRate: UILabel!
-    @IBOutlet weak var movieID: UILabel!
     @IBOutlet weak var movieDate: UILabel!
-
+    @IBOutlet weak var movieRating: UILabel!
+    @IBOutlet weak var movieOverview: UILabel!
+    
+    var titleToSet: String?
+    var dateToSet: String?
+    var posterToSet: String?
+    var ratingToSet: String?
+    var overviewToSet: String?
+    var idToSet: String?
+    
     var urlString: String = ""
     
-    func setCellWithValuesOf(_ movie:Movie) {
-        updateUI(id: movie.id, title: movie.title, releaseDate: movie.year, rating: movie.rate, overview: movie.overview, poster: movie.posterImage)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        detailSet()
+        
+        // Do any additional setup after loading the view.
     }
     
-    private func updateUI(id: Int?, title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?) {
+    private func detailSet() {
         
-        self.movieTitle.text = title
-        guard let rate = rating else {return}
-        guard let id = id else {return}
-        self.movieID.text = String(id)
-        self.movieDate.text = releaseDate
-        self.movieRate.text = String(rate)
-        self.movieOverview.text = overview
+        movieTitle.text = titleToSet
+        movieRating.text = "평점: \(ratingToSet!)"
+        movieOverview.text = overviewToSet
+        movieDate.text = "개봉일: \(dateToSet!)"
         
-        guard let posterString = poster else {return}
+        guard let posterString = posterToSet else {return}
+        
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
-        
         guard let posterImageURL = URL(string: urlString) else {
             self.moviePoster.image = UIImage(named: "noImageAvailable")
             return
         }
-        
-        // Before we download the image we clear out the old one
         self.moviePoster.image = nil
-        
         getImageDataFrom(url: posterImageURL)
-         
     }
     
-    // MARK: - Get image data
     private func getImageDataFrom(url: URL) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             // Handle Error
@@ -69,4 +72,11 @@ class MovieTableViewCell: UITableViewCell {
             }
         }.resume()
     }
+    
+
+    @IBAction func searchSimilarMovie(_ sender: UIButton) {
+        
+    }
+    
+
 }

@@ -10,7 +10,8 @@ import Foundation
 class MovieViewModel {
     
     private var apiService = ApiService()
-    private var popularMoviews = [Movie]()
+    var popularMovies = [Movie]()
+    var similarMovies = [Movie]()
     
     func fetchPopularMovieData(completion: @escaping () -> ()) {
         
@@ -18,7 +19,22 @@ class MovieViewModel {
             
             switch result {
             case .success(let listOf):
-                self?.popularMoviews = listOf.movies
+                self?.popularMovies = listOf.movies
+                completion()
+            case .failure(let error):
+                print("Error processing json data: \(error)")
+            }
+            
+        }
+    
+    }
+    func fetchSimilarMovieData(completion: @escaping () -> ()) {
+        
+        apiService.getSimilarMovieData { [weak self] (result) in
+            
+            switch result {
+            case .success(let listOf):
+                self?.similarMovies = listOf.movies
                 completion()
             case .failure(let error):
                 print("Error processing json data: \(error)")
@@ -28,13 +44,26 @@ class MovieViewModel {
     
     }
     
-    func numberOfRowsInSection(section: Int) -> Int {
-        if popularMoviews.count != 0 {
-            return popularMoviews.count
+    func numberOfRowsInSectionP(section: Int) -> Int {
+        if popularMovies.count != 0 {
+            return popularMovies.count
         }
         return 0
     }
-    func cellForRowAt (indexPath: IndexPath) -> Movie {
-        return popularMoviews[indexPath.row]
+    
+    func cellForRowAtP (indexPath: IndexPath) -> Movie {
+        return popularMovies[indexPath.row]
     }
+    
+    func numberOfRowsInSectionS(section: Int) -> Int {
+        if similarMovies.count != 0 {
+            return similarMovies.count
+        }
+        return 0
+    }
+    
+    func cellForRowAtS (indexPath: IndexPath) -> Movie {
+        return similarMovies[indexPath.row]
+    }
+    
 }
