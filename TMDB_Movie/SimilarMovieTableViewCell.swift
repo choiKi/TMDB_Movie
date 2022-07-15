@@ -1,54 +1,49 @@
 //
-//  DetailViewController.swift
+//  SimilarMovieTableViewCell.swift
 //  TMDB_Movie
 //
-//  Created by 최기훈 on 2022/07/15.
+//  Created by 최기훈 on 2022/07/16.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    
+class SimilarMovieTableViewCell: UITableViewCell {
+
     
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieDate: UILabel!
+    @IBOutlet weak var movieGenre: UILabel!
     @IBOutlet weak var movieRating: UILabel!
-    @IBOutlet weak var movieOverview: UILabel!
-    
-    var titleToSet: String?
-    var dateToSet: String?
-    var posterToSet: String?
-    var ratingToSet: String?
-    var overviewToSet: String?
-    var idToSet: String?
     
     var urlString: String = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        detailSet()
-        
-        // Do any additional setup after loading the view.
+    func setCellWithValuesOf(_ movie: SMovie) {
+        updateUI(title: movie.title, rating: movie.rate, genre: movie.genre, poster: movie.posterImage)
     }
     
-    private func detailSet() {
+    private func updateUI(title: String?, rating: Double?, genre:[Int]?, poster: String?) {
         
-        movieTitle.text = titleToSet
-        movieRating.text = "평점: \(ratingToSet!)"
-        movieOverview.text = overviewToSet
-        movieDate.text = "개봉일: \(dateToSet!)"
+        self.movieTitle.text = title
+        guard let rate = rating else {return}
+        guard let genre = genre else {return}
+        self.movieRating.text = String(rate)
         
-        guard let posterString = posterToSet else {return}
-        
+        guard let posterString = poster else {return}
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
+        
         guard let posterImageURL = URL(string: urlString) else {
             self.moviePoster.image = UIImage(named: "noImageAvailable")
             return
         }
+        
+        // Before we download the image we clear out the old one
         self.moviePoster.image = nil
+        
         getImageDataFrom(url: posterImageURL)
+         
+    }
+    func genreString(_ movie: SMovie) {
+        
     }
     
     private func getImageDataFrom(url: URL) {
@@ -72,11 +67,4 @@ class DetailViewController: UIViewController {
             }
         }.resume()
     }
-    
-
-    @IBAction func searchSimilarMovie(_ sender: UIButton) {
-    
-    }
-    
-
 }

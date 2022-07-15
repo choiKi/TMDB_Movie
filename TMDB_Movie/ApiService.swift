@@ -48,7 +48,9 @@ class ApiService {
 
     func getSimilarMovieData(completion: @escaping (Result<MoviesData, Error>) -> Void ) {
         
-        let similarMovieURL = "https://api.themoviedb.org/3/movie/438148/similar?api_key=1a8a16f83fbed96908c36d0c9ffc8f74&language=ko-KR&page=1"
+        
+        let detail = DetailViewController()
+        let similarMovieURL = "https://api.themoviedb.org/3/movie/\(detail.idToSet!)/similar?api_key=1a8a16f83fbed96908c36d0c9ffc8f74&language=ko-KR&page=1"
         
         guard let url = URL(string: similarMovieURL) else { return }
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error ) in
