@@ -11,7 +11,7 @@ class MovieViewModel {
     
     private var apiService = ApiService()
     var popularMovies = [Movie]()
-    var similarMovies = [Movie]()
+    var similarMovies = [SMovie]()
     
     func fetchPopularMovieData(completion: @escaping () -> ()) {
         
@@ -62,7 +62,7 @@ class MovieViewModel {
         return 0
     }
     
-    func cellForRowAtS (indexPath: IndexPath) -> Movie {
+    func cellForRowAtS (indexPath: IndexPath) -> SMovie {
         return similarMovies[indexPath.row]
     }
     

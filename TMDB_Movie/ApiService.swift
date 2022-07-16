@@ -46,12 +46,11 @@ class ApiService {
 
     }
 
-    func getSimilarMovieData(completion: @escaping (Result<MoviesData, Error>) -> Void ) {
+    func getSimilarMovieData(completion: @escaping (Result<SMoviesData, Error>) -> Void ) {
         
         
-        let detail = DetailViewController()
-        let similarMovieURL = "https://api.themoviedb.org/3/movie/\(detail.idToSet!)/similar?api_key=1a8a16f83fbed96908c36d0c9ffc8f74&language=ko-KR&page=1"
-        
+        let id = SimilarViewController()
+        let similarMovieURL = "https://api.themoviedb.org/3/movie/438223/similar?api_key=1a8a16f83fbed96908c36d0c9ffc8f74&language=ko-KR&page=1"
         guard let url = URL(string: similarMovieURL) else { return }
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error ) in
             if let error = error {
@@ -68,7 +67,7 @@ class ApiService {
             }
             do {
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(MoviesData.self, from: data)
+                let jsonData = try decoder.decode(SMoviesData.self, from: data)
                 
                 DispatchQueue.main.async {
                     completion(.success(jsonData))

@@ -12,20 +12,18 @@ class SimilarMovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieGenre: UILabel!
     @IBOutlet weak var movieRating: UILabel!
     
     var urlString: String = ""
     
     func setCellWithValuesOf(_ movie: SMovie) {
-        updateUI(title: movie.title, rating: movie.rate, genre: movie.genre, poster: movie.posterImage)
+        updateUI(title: movie.title, rating: movie.rate, poster: movie.posterImage)
     }
     
-    private func updateUI(title: String?, rating: Double?, genre:[Int]?, poster: String?) {
+    private func updateUI(title: String?, rating: Double?, poster: String?) {
         
         self.movieTitle.text = title
         guard let rate = rating else {return}
-        guard let genre = genre else {return}
         self.movieRating.text = String(rate)
         
         guard let posterString = poster else {return}

@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieDate: UILabel!
     @IBOutlet weak var movieRating: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
+    @IBOutlet weak var idView: UILabel!
     
     var titleToSet: String?
     var dateToSet: String?
@@ -29,6 +30,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         detailSet()
+        print(idToSet!)
+        navigationItem.title = "세부 정보"
         
         // Do any additional setup after loading the view.
     }
@@ -39,6 +42,7 @@ class DetailViewController: UIViewController {
         movieRating.text = "평점: \(ratingToSet!)"
         movieOverview.text = overviewToSet
         movieDate.text = "개봉일: \(dateToSet!)"
+        idView.text = idToSet
         
         guard let posterString = posterToSet else {return}
         
@@ -75,8 +79,19 @@ class DetailViewController: UIViewController {
     
 
     @IBAction func searchSimilarMovie(_ sender: UIButton) {
-    
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "similar") as! SimilarViewController
+
+        vc.idToSet2 = idToSet
+        vc.titleToSet2 = titleToSet
+        vc.posterToSet2 = posterToSet
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
+    
+    
     
 
 }

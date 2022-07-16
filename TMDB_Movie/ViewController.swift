@@ -17,6 +17,7 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.navigationItem.title = "영화 목록"
         loadPopularMoviesData()
     }
     
@@ -26,6 +27,8 @@ class ViewController: UIViewController{
             self?.tableView.reloadData()
         }
     }
+    
+    
 
 
 }
