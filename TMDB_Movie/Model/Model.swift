@@ -47,13 +47,13 @@ struct SMovie: Decodable {
     
     let title: String?
     let rate: Double?
-    // let genre: [Int]?
+    let genre: [Int]?
     let posterImage: String?
     
     private enum CodingKeys: String, CodingKey {
         
         case title
-        // case genre = "genre_ids"
+        case genre = "genre_ids"
         case rate = "vote_average"
         case posterImage = "poster_path"
     }

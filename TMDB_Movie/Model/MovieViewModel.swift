@@ -11,7 +11,7 @@ class MovieViewModel {
     
     private var apiService = ApiService()
     var popularMovies = [Movie]()
-    var similarMovies = [SMovie]()
+ 
     
     func fetchPopularMovieData(completion: @escaping () -> ()) {
         
@@ -28,6 +28,7 @@ class MovieViewModel {
         }
     
     }
+    /*
     func fetchSimilarMovieData(completion: @escaping () -> ()) {
         
         apiService.getSimilarMovieData { [weak self] (result) in
@@ -43,6 +44,7 @@ class MovieViewModel {
         }
     
     }
+    */
     
     func numberOfRowsInSectionP(section: Int) -> Int {
         if popularMovies.count != 0 {
@@ -55,15 +57,6 @@ class MovieViewModel {
         return popularMovies[indexPath.row]
     }
     
-    func numberOfRowsInSectionS(section: Int) -> Int {
-        if similarMovies.count != 0 {
-            return similarMovies.count
-        }
-        return 0
-    }
-    
-    func cellForRowAtS (indexPath: IndexPath) -> SMovie {
-        return similarMovies[indexPath.row]
-    }
+   
     
 }

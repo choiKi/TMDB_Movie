@@ -121,7 +121,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BPX-G2-j0M" secondAttribute="trailing" id="tzx-rb-fWV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3Hs-Kp-gs0"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="3Hs-Kp-gs0"/>
                     <connections>
                         <outlet property="tableView" destination="BPX-G2-j0M" id="lJN-RX-EHE"/>
                     </connections>
@@ -231,7 +231,7 @@
                             <constraint firstItem="xTC-SI-tNb" firstAttribute="leading" secondItem="y4g-Eh-s1V" secondAttribute="leading" constant="20" id="yGc-T5-q0f"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5Qr-e9-Csl"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="5Qr-e9-Csl"/>
                     <connections>
                         <outlet property="idView" destination="H0X-zA-LMw" id="xYm-uo-P5F"/>
                         <outlet property="movieDate" destination="PcM-KC-Ivt" id="GCP-vt-lDu"/>
@@ -274,14 +274,14 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocx-YC-iZm">
                                                     <rect key="frame" x="124" y="16" width="260" height="26"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRz-xj-Jv6">
                                                     <rect key="frame" x="124" y="57" width="260" height="19"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratedStar" translatesAutoresizingMaskIntoConstraints="NO" id="bMb-zr-VlN">
@@ -292,7 +292,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuF-1Y-yWc">
-                                                    <rect key="frame" x="176" y="101" width="90" height="36"/>
+                                                    <rect key="frame" x="166" y="101" width="100" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -313,12 +313,13 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="bMb-zr-VlN" secondAttribute="trailing" constant="238" id="dwd-Ck-ocW"/>
                                                 <constraint firstItem="iRz-xj-Jv6" firstAttribute="top" secondItem="Ocx-YC-iZm" secondAttribute="bottom" constant="15" id="gAZ-MJ-dzE"/>
                                                 <constraint firstItem="3Wf-gb-v3M" firstAttribute="leading" secondItem="NSx-O9-8Ji" secondAttribute="leadingMargin" constant="-3" id="jje-Ug-8PN"/>
-                                                <constraint firstItem="kuF-1Y-yWc" firstAttribute="leading" secondItem="bMb-zr-VlN" secondAttribute="trailing" constant="20" id="lGH-cT-333"/>
+                                                <constraint firstItem="kuF-1Y-yWc" firstAttribute="leading" secondItem="bMb-zr-VlN" secondAttribute="trailing" constant="10" id="lGH-cT-333"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kuF-1Y-yWc" secondAttribute="trailing" constant="128" id="q9V-2X-4Xd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ocx-YC-iZm" secondAttribute="bottom" constant="110" id="qBC-Bi-sDk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="movieGenre" destination="iRz-xj-Jv6" id="sIf-SE-4kB"/>
                                             <outlet property="moviePoster" destination="3Wf-gb-v3M" id="T01-vj-vYm"/>
                                             <outlet property="movieRating" destination="kuF-1Y-yWc" id="Gjh-nb-5If"/>
                                             <outlet property="movieTitle" destination="Ocx-YC-iZm" id="pdY-QK-ssj"/>
@@ -337,7 +338,7 @@
                             <constraint firstItem="AEG-Hy-6gg" firstAttribute="bottom" secondItem="s9Z-88-j7z" secondAttribute="bottom" id="tLV-N3-B2d"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="L1N-6j-j59"/>
+                    <navigationItem key="navigationItem" title="dd" id="L1N-6j-j59"/>
                     <connections>
                         <outlet property="tableView" destination="AEG-Hy-6gg" id="SDd-6n-MDa"/>
                     </connections>
