@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--인기 영화-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TMDB_Movie" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BPX-G2-j0M">
-                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="148" id="uIz-Db-cku" customClass="MovieTableViewCell" customModule="TMDB_Movie" customModuleProvider="target">
@@ -121,6 +121,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BPX-G2-j0M" secondAttribute="trailing" id="tzx-rb-fWV"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="인기 영화" image="star.fill" catalog="system" id="ZoG-Jb-Lgy"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="3Hs-Kp-gs0"/>
                     <connections>
                         <outlet property="tableView" destination="BPX-G2-j0M" id="lJN-RX-EHE"/>
@@ -128,7 +129,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1810.144927536232" y="63.616071428571423"/>
+            <point key="canvasLocation" x="2720.289855072464" y="63.616071428571423"/>
+        </scene>
+        <!--영화 검색-->
+        <scene sceneID="EQ9-rS-KUx">
+            <objects>
+                <viewController id="SVi-iN-B6a" customClass="SearchViewController" customModule="TMDB_Movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ONb-Tw-wyl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oGn-jl-OEU">
+                                <rect key="frame" x="0.0" y="142" width="414" height="754"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qeE-Aa-RGg">
+                                <rect key="frame" x="15" y="98" width="384" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q39-YY-eTG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="oGn-jl-OEU" secondAttribute="bottom" id="0X9-1O-wfr"/>
+                            <constraint firstItem="oGn-jl-OEU" firstAttribute="leading" secondItem="ONb-Tw-wyl" secondAttribute="leading" id="FTc-vK-q6Q"/>
+                            <constraint firstItem="oGn-jl-OEU" firstAttribute="top" secondItem="qeE-Aa-RGg" secondAttribute="bottom" constant="10" id="GFa-07-vhl"/>
+                            <constraint firstItem="Q39-YY-eTG" firstAttribute="trailing" secondItem="qeE-Aa-RGg" secondAttribute="trailing" constant="15" id="Wuj-qa-fFU"/>
+                            <constraint firstItem="qeE-Aa-RGg" firstAttribute="leading" secondItem="Q39-YY-eTG" secondAttribute="leading" constant="15" id="Zc3-du-HW4"/>
+                            <constraint firstItem="Q39-YY-eTG" firstAttribute="trailing" secondItem="oGn-jl-OEU" secondAttribute="trailing" id="c25-lD-rY8"/>
+                            <constraint firstItem="qeE-Aa-RGg" firstAttribute="top" secondItem="Q39-YY-eTG" secondAttribute="top" constant="10" id="pdy-uU-Z7W"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="영화 검색" image="magnifyingglass" catalog="system" id="bog-Ow-9YE"/>
+                    <connections>
+                        <outlet property="searchBar" destination="qeE-Aa-RGg" id="aVa-ST-5XV"/>
+                        <outlet property="tableView" destination="oGn-jl-OEU" id="dy6-zg-cCN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DgY-7x-AiP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2724.6376811594205" y="707.8125"/>
         </scene>
         <!--detail-->
         <scene sceneID="u8b-lz-HXd">
@@ -244,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZf-hQ-41u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2701.449275362319" y="63.616071428571423"/>
+            <point key="canvasLocation" x="3611.594202898551" y="63.616071428571423"/>
         </scene>
         <!--similar-->
         <scene sceneID="zBR-qe-gvu">
@@ -345,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEL-0z-mHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3579.7101449275365" y="63.616071428571423"/>
+            <point key="canvasLocation" x="4489.855072463768" y="63.616071428571423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p3o-dV-NYh">
@@ -358,16 +399,37 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Z41-M6-Plg"/>
+                        <segue destination="9Nq-Yv-RKN" kind="relationship" relationship="rootViewController" id="Z41-M6-Plg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ylv-yE-a0E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="900.00000000000011" y="63.616071428571423"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Xdt-Yd-fg6">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9Nq-Yv-RKN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="zOT-aI-NyM"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B51-CC-Pp0">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="qdp-fz-59n"/>
+                        <segue destination="SVi-iN-B6a" kind="relationship" relationship="viewControllers" id="sNr-rx-Tr2"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W93-nI-73g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1810.144927536232" y="63.616071428571423"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="ratedStar" width="250" height="236"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
