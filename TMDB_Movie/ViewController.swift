@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController{
     
@@ -27,15 +28,10 @@ class ViewController: UIViewController{
             self?.tableView.reloadData()
         }
     }
-    
-    
-
 
 }
 
 extension ViewController: UITableViewDataSource,UITableViewDelegate {
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if viewModel.popularMovies.count != 0 {

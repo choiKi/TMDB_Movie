@@ -28,7 +28,7 @@ class ApiService {
                 return
             }
             guard let data = data else {
-                print("empty data")
+                print("데이터가 없음")
                 return
             }
             do {
